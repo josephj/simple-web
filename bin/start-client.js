@@ -1,6 +1,6 @@
 var webpack = require('webpack'),
     WebpackDevServer = require('webpack-dev-server'),
-    config = require('../webpack/webpack.config.development');
+    config = require('../webpack/webpack.config.client.development');
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
@@ -8,7 +8,7 @@ new WebpackDevServer(webpack(config), {
     historyApiFallback: true,
     https: false,
     quiet: false,
-    colors: true,
+//    colors: true,
     stats: 'errors-only'
 }).listen(9989, 'localhost', function (err, result) {
     if (err) {

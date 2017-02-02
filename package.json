@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "npm run dev:server & npm run dev:client",
-    "dev:server": "node app.server.js",
+    "dev": "npm run dev:watch & npm run dev:server & npm run dev:client",
+    "dev:watch": "webpack --watch --config ./webpack/webpack.config.server.js --colors --display-error-details",
+    "dev:server": "nodemon bin/start-server.js --watch ./build/server",
     "dev:client": "node bin/start-client.js"
   },
   "author": "Joseph Chiang",
@@ -12,8 +13,11 @@
   "dependencies": {
     "ejs": "^2.5.5",
     "express": "^4.14.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "universal-webpack": "^0.3.1",
+    "webpack": "^2.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
@@ -21,8 +25,8 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "babel-preset-stage-1": "^6.22.0",
-    "react-hot-loader": "^1.3.1",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^1.16.3"
+    "nodemon": "^1.11.0",
+    "react-hot-loader": "3.0.0-beta.2",
+    "webpack-dev-server": "beta"
   }
 }

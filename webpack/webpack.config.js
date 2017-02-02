@@ -6,12 +6,18 @@ module.exports = {
   entry: {
     app: './app.client.js'
   },
+  output: {
+    path: path.join(__dirname, '../build/client'),
+    publicPath: '/build/client/',
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[hash].js'
+  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: [/node_modules/],
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['es2015', 'stage-1', 'react']
         }
@@ -50,8 +56,9 @@ module.exports = {
   },
   resolve: {
     modules: [
-      path.join(__dirname, '../node_modules')
+      path.join(__dirname, '../'),
+      'node_modules'
     ]
-  },
+  }
 }
 

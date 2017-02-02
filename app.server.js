@@ -1,13 +1,29 @@
-const express = require('express');
-const app = express();
+import path from 'path';
+import http from 'http';
+import express from 'express';
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import App from './components/App';
+import Html from './components/Html';
 
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+module.exports = function (params) {
+  const app = express();
+  const server = new http.Server(app);
+  const chunks = params.chunks();
+  const component = (<App/>);
 
-app.get('/', function (req, res) {
-  res.render('welcome');
-});
+  app.use(express.static(path.join(__dirname, 'build/client')));
+  app.use((req, res) => {
+     const content = ReactDOM.renderToString(
+       <Html
+         assets={chunks}
+         component={component}/>
+     );
 
-app.listen(4000, function () {
-  console.log('app listening on port 4000!');
-});
+     res.send(`<!DOCTYPE html>${content}`);
+  });
+
+  server.listen(4000, function () {
+    console.log('app listening on port 4000!');
+  });
+};

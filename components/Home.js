@@ -1,5 +1,9 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 
 export default () => (
-  <div>This is the home page.</div>
+  <div>
+    <Helmet title="Home"/>
+    This is the home page.
+  </div>
 );

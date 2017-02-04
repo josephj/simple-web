@@ -1,8 +1,12 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
+import {BrowserRouter} from 'react-router';
+import Layout from './Layout'
 
-export default class App extends Component {
-  render() {
-    return <div>Hello Univeral World!</div>
-  }
-};
+const App = () => (
+  <BrowserRouter>
+    {({location}) => <Layout location={location}/>}
+  </BrowserRouter>
+);
+
+export default App;
 

@@ -10,7 +10,7 @@ import {ServerRouter, createServerRenderContext} from 'react-router';
 import Layout from './components/Layout';
 import Html from './components/Html';
 
-module.exports = function (params) {
+export default function (params) {
   const app = express();
   const server = new http.Server(app);
   const chunks = params.chunks();

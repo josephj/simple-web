@@ -6,7 +6,11 @@
     "dev": "npm run dev:watch & npm run dev:server & npm run dev:client",
     "dev:watch": "webpack --watch --config ./webpack/webpack.config.server.js --colors --display-error-details",
     "dev:server": "nodemon bin/start-server.js --watch ./build/server",
-    "dev:client": "node bin/start-client.js"
+    "dev:client": "node bin/start-client.js",
+    "build": "npm run build-client & npm run build-server",
+    "build-client": "webpack --config ./webpack/webpack.config.client.production.js --colors --display-error-details",
+    "build-server": "webpack --config ./webpack/webpack.config.server.production.js --colors --display-error-details",
+    "server": "node app.js"
   },
   "author": "Joseph Chiang",
   "license": "MIT",

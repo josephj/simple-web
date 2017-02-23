@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "clean-webpack-plugin": "^0.1.15"
+  }
+}

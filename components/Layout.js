@@ -8,7 +8,7 @@ const Layout = (props) => {
       <div>
         <h1>Universal Webpack Boilerplate</h1>
         <Match exactly={true} pattern="/" component={Welcome}/>
-        <Match pattern="/home" component={Home}/>
+        <Match exactly={true} pattern="/home" component={Home}/>
       </div>
   )
 };
